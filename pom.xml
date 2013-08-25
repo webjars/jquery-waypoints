@@ -10,15 +10,14 @@
 
 	<groupId>org.webjars</groupId>
 	<artifactId>jquery-waypoints</artifactId>
-	<version>2.0.3</version>
+	<version>2.0.3-SNAPSHOT</version>
 	<name>jQuery Waypoints</name>
 	<description>WebJar for jQuery Waypoints</description>
 	<url>http://webjars.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<upstream.version>${project.version}</upstream.version>
-		<commit>aa31522976ba87030e0366cc1f209d1d3781810c</commit>
+		<upstream.version>2.0.3</upstream.version>
 		<upstream.url>https://github.com/imakewebthings/jquery-waypoints/archive</upstream.url>
 		<destDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstream.version}</destDir>
 	</properties>
@@ -40,9 +39,9 @@
 	</dependencies>
 
 	<scm>
-		<url>https://github.com/imakewebthings/jquery-waypoints</url>
-		<connection>scm:git:https://github.com/imakewebthings/jquery-waypoints.git</connection>
-		<developerConnection>scm:git:https://github.com/imakewebthings/jquery-waypoints.git</developerConnection>
+		<url>https://github.com/webjars/jquery-waypoints</url>
+		<connection>scm:git:https://github.com/webjars/jquery-waypoints.git</connection>
+		<developerConnection>scm:git:https://github.com/webjars/jquery-waypoints.git</developerConnection>
 		<tag>HEAD</tag>
 	</scm>
 
@@ -68,7 +67,7 @@
 						</goals>
 						<configuration>
 							<url>${upstream.url}</url>
-							<fromFile>${commit}.zip</fromFile>
+							<fromFile>v${upstream.version}.zip</fromFile>
 							<toFile>${project.build.directory}/${project.artifactId}.zip</toFile>
 						</configuration>
 					</execution>
@@ -91,7 +90,7 @@
 									dest="${project.build.directory}" />
 								<echo message="moving resources" />
 								<move todir="${destDir}">
-									<fileset dir="${project.build.directory}/${project.artifactId}-${commit}">
+									<fileset dir="${project.build.directory}/${project.artifactId}-${upstream.version}">
 									    <exclude name="test/**" />
 										<include name="**/*.coffee" />
 										<include name="**/*.js" />
